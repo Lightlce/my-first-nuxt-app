@@ -5,6 +5,7 @@
       <WeekendHighlights class="mt-[90px] lg:mt-[64px]" />
       <JustForYou class="px-[24px] mt-[48px] mb-[58px] lg:pl-[49px] lg:pr-0" /> -->
     <!-- </div> -->
+    Hello World!
   </div>
 </template>
 

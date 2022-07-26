@@ -13,80 +13,21 @@
       </p>
     </section>
 
-    <section v-if="filteredUpcomingEvents.length > 0" class="sm:mt-[56px] mt-[24px]">
-        <h1 class="font-bold text-xl px-[24px] sm:px-0">Upcoming events</h1>
+    <section class="sm:mt-[56px] mt-[24px]">
+      <h1 class="font-bold text-xl px-[24px] sm:px-0">Upcoming events</h1>
 
-      <!-- <Slider
-        class="mt-[24px]"
-        :class="{
-          'lg:hidden': filteredUpcomingEvents.length < 4,
-        }"
-        :items="filteredUpcomingEvents"
-        :slides-per-view="1.5"
-        :breakpoints="breakpoints"
-        blur-color="#F8F9F9"
-        has-arrows-desktop
-        has-pagination
-        custom
-      > -->
-      <div :v-for="item in filteredUpcomingEvents">
-        <template>
-          <CardTile
-            class="h-full border-[0px] rounded-lg drop-shadow-tile relative flex flex-col"
-            corner-text-class="text-xs lg:text-[16px] sm:px-[12px] font-semibold leading-[20px]"
-            :image-src="item.imageSrc"
-            :corner-text="item.cornerText"
-            text-wrapper-class="min-h-[48px] text-left pt-[20px] px-[20px] pb-[72px]"
-          >
-            <h1 class="text-md font-bold sm:text-[20px] sm:leading-[24px]">
-              {{ item.title }}
-            </h1>
-
-            <p
-              class="pt-[8px] pb-[12px] text-md leading-6 sm:leading-[24px] whitespace-pre-line mb-auto"
-            >
-              {{ item.body }}
-            </p>
-            <a
-              v-if="item.isExternal"
-              :href="item.to"
-              target="_blank"
-              :data-event-tracking="item.dataEventTracking"
-            >
-              <BaseButton
-                class="absolute bottom-[20px]"
-                solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-                :data-event-tracking="item.dataEventTracking"
-              >
-                {{ item.buttonText }}
-              </BaseButton>
-            </a>
-            <nuxt-link v-else :to="item.to" :data-event-tracking="item.dataEventTracking">
-              <BaseButton
-                class="absolute bottom-[20px]"
-                solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-                :data-event-tracking="item.dataEventTracking"
-              >
-                {{ item.buttonText }}
-              </BaseButton>
-            </nuxt-link>
-          </CardTile>
-        </template>
-        </div>
-      <!-- </Slider> -->
-
-      <div v-if="filteredUpcomingEvents.length < 4" class="hidden mt-4 lg:flex lg:items-stretch">
+      <div class="hidden mt-4 lg:flex lg:items-stretch">
         <CardTile
-          v-for="(item, i) in filteredUpcomingEvents"
+          v-for="(item, i) in weeklyEvents"
           :key="i"
           class="desktop-slide flex-1 border-[0px] rounded-lg drop-shadow-tile relative"
           :class="{
-            'tablet-slide': filteredUpcomingEvents.length < 3,
+            'tablet-slide': weeklyEvents.length < 3,
             'ml-[20px]': i >= 1,
           }"
-          corner-text-class="text-xs lg:text-[16px] sm:px-[12px] font-semibold leading-[20px]"
-          :image-src="item.imageSrc"
-          :corner-text="item.cornerText"
+          cornerTextClass="text-xs lg:text-[16px] sm:px-[12px] font-semibold leading-[20px]"
+          :imageSrc="item.imageSrc"
+          :cornerText="item.cornerText"
           text-wrapper-class="text-left pt-[20px] px-[20px] pb-[72px]"
         >
           <h1 class="text-md font-bold sm:text-[20px] sm:leading-[24px]">
@@ -103,138 +44,20 @@
             v-if="item.isExternal"
             :href="item.to"
             target="_blank"
-            :data-event-tracking="item.dataEventTracking"
+          
           >
             <BaseButton
               class="absolute bottom-[20px]"
               solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-              :data-event-tracking="item.dataEventTracking"
             >
               {{ item.buttonText }}
             </BaseButton>
           </a>
 
-          <nuxt-link v-else :to="item.to" :data-event-tracking="item.dataEventTracking">
+          <nuxt-link v-else :to="item.to">
             <BaseButton
               class="absolute bottom-[20px]"
               solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-              :data-event-tracking="item.dataEventTracking"
-            >
-              {{ item.buttonText }}
-            </BaseButton>
-          </nuxt-link>
-        </CardTile>
-      </div>
-    </section>
-    <!-- </div> -->
-
-    <section v-if="filteredWeeklyEvents.length > 0" class="mt-16">
-      <h1 class="font-bold text-xl px-[24px] sm:px-0">Weekly events</h1>
-
-      <!-- <Slider
-        class="mt-[24px]"
-        :class="{
-          'lg:hidden': filteredWeeklyEvents.length < 4,
-        }"
-        :items="filteredWeeklyEvents"
-        :slides-per-view="1.5"
-        :breakpoints="breakpoints"
-        blur-color="#F8F9F9"
-        has-arrows-desktop
-        has-pagination
-        custom
-      > -->
-      <div :v-for="item in filteredWeeklyEvents">
-        <template>
-          <CardTile
-            class="h-full border-[0px] rounded-lg drop-shadow-tile relative flex flex-col"
-            corner-text-class="text-xs lg:text-[16px] sm:px-[12px] font-semibold leading-[20px]"
-            :image-src="item.imageSrc"
-            :corner-text="item.cornerText"
-            text-wrapper-class="text-left pt-[20px] px-[20px] pb-[72px]"
-          >
-            <h1 class="min-h-[48px] text-md font-bold sm:text-[20px] sm:leading-[24px]">
-              {{ item.title }}
-            </h1>
-
-            <p
-              class="pt-[8px] pb-[12px] text-md leading-6 sm:leading-[24px] whitespace-pre-line mb-auto"
-            >
-              {{ item.body }}
-            </p>
-
-            <a
-              v-if="item.isExternal"
-              :href="item.to"
-              target="_blank"
-              :data-event-tracking="item.dataEventTracking"
-            >
-              <BaseButton
-                class="absolute bottom-[20px]"
-                solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-                :data-event-tracking="item.dataEventTracking"
-              >
-                {{ item.buttonText }}
-              </BaseButton>
-            </a>
-
-            <nuxt-link v-else :to="item.to" :data-event-tracking="item.dataEventTracking">
-              <BaseButton
-                class="absolute bottom-[20px]"
-                solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-                :data-event-tracking="item.dataEventTracking"
-              >
-                {{ item.buttonText }}
-              </BaseButton>
-            </nuxt-link>
-          </CardTile>
-        </template>
-        </div>
-      <!-- </Slider> -->
-
-      <div v-if="filteredWeeklyEvents.length < 4" class="hidden mt-4 lg:flex lg:items-stretch">
-        <CardTile
-          v-for="(item, i) in filteredWeeklyEvents"
-          :key="i"
-          class="desktop-slide flex-1 border-[0px] rounded-lg drop-shadow-tile relative"
-          :class="{
-            'tablet-slide': filteredWeeklyEvents.length < 4,
-            'ml-[20px]': i >= 1,
-          }"
-          corner-text-class="text-xs lg:text-[16px] sm:px-[12px] font-semibold leading-[20px]"
-          :image-src="item.imageSrc"
-          text-wrapper-class="text-left pt-[20px] px-[20px] pb-[72px]"
-        >
-          <h1 class="min-h-[48px] text-md font-bold sm:text-[20px] sm:leading-[24px]">
-            {{ item.title }}
-          </h1>
-
-          <p
-            class="pt-[8px] pb-[12px] text-md leading-6 sm:leading-[24px] whitespace-pre-line mb-auto"
-          >
-            {{ item.body }}
-          </p>
-
-          <a
-            v-if="item.isExternal"
-            :href="item.to"
-            target="_blank"
-            :data-event-tracking="item.dataEventTracking"
-          >
-            <BaseButton
-              class="absolute bottom-[20px]"
-              solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-              :data-event-tracking="item.dataEventTracking"
-            >
-              {{ item.buttonText }}
-            </BaseButton>
-          </a>
-
-          <nuxt-link v-else :to="item.to" :data-event-tracking="item.dataEventTracking">
-            <BaseButton
-              class="absolute bottom-[20px]"
-              solid-classes="bg-[#6245F4] text-white text-xs border-0 hover:bg-[#3B4CEF] sm:text-[16px] sm:leading-[24px]"
-              :data-event-tracking="item.dataEventTracking"
             >
               {{ item.buttonText }}
             </BaseButton>
@@ -248,11 +71,9 @@
 <script>
 import BaseButton from '../components/BaseButton.vue'
 import CardTile from '../components/CardTile.vue'
-// { BaseButton, Slider, CardTile } from '@team-hogc/design-internal-components-vue'
 
 export default {
   components: {
-    // Slider,
     CardTile,
     BaseButton,
   },
@@ -353,12 +174,6 @@ export default {
           centeredSlides: false,
         },
       }
-    },
-    filteredUpcomingEvents () {
-      return this.upcomingEvents.filter(c => (!c.minPastoralStatus && !c.maxPastoralStatus) || this.pastoralMapping[this.pastoralRoleId] >= c.minPastoralStatus || this.pastoralMapping[this.pastoralRoleId] <= c.maxPastoralStatus)
-    },
-    filteredWeeklyEvents () {
-      return this.weeklyEvents.filter(c => (!c.minPastoralStatus && !c.maxPastoralStatus) || this.pastoralMapping[this.pastoralRoleId] >= c.minPastoralStatus || this.pastoralMapping[this.pastoralRoleId] <= c.maxPastoralStatus)
     },
   },
 }

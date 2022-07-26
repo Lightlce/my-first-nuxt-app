@@ -2,10 +2,10 @@
   <section class="bg-white border border-gray-300 rounded-[24px]">
     <ImageTile
       class="w-full rounded-t-[24px]"
-      :image-class="imageClass"
-      :corner-text-class="cornerTextClass"
+      :imageClass="imageClass"
+      :cornerTextClass="cornerTextClass"
       :src="imageSrc"
-      :corner-text="cornerText"
+      :cornerText="cornerText"
     />
 
     <div :class="textWrapperClass">

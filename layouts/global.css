@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 400;
+  src: local("Proxima Nova"), url(~assets/fonts/ProximaNova-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 600;
+  src: local("Proxima Nova"), url(~assets/fonts/ProximaNova-Semibold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 700;
+  src: local("Proxima Nova"), url(~assets/fonts/ProximaNova-Bold.otf) format("opentype");
+}
+
+html, body {
+  @apply font-sans;
+}
+
+body .pswp__button--share {
+  display: none !important;
+}
+
+div[itemscope="itemscope"].my-gallery figure {
+  margin:0;
+}
+
+div[itemscope="itemscope"] img[itemprop="thumbnail"] {
+  display: inherit !important;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+  margin-right: 0.25rem;
+  width: 106px;
+  height: 106px;
+  object-fit:cover;
+}
+
+@media screen and (min-width: 768px) {
+  div[itemscope="itemscope"] img[itemprop="thumbnail"] {
+    display: inherit !important;
+    width: 200px;
+    height: 200px;
+    object-fit:cover;
+  }
+}
+
+body .pswp__img {
+  margin: 0px !important;
+
+
+  height: auto !important;
+}
+
+@media all and (min-width: 768px) {
+  .pswp__scroll-wrap .pswp__zoom-wrap {
+    transition: width 0.2s linear;
+    position: unset !important;
+    -webkit-transform: unset !important;
+        -ms-transform: unset !important;
+            transform: unset !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100% !important;
+    width: 100% !important;
+  }
+  
+  .pswp__scroll-wrap .pswp__img {
+    transition: width 0.2s linear;
+    margin: 0px !important;
+    width: auto !important;
+    height: 80% !important;
+    position: absolute;
+    top: 50% !important;  
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; 
+  }
+}
+
+
+
+
+
+/* @media screen and (min-height: 800px) {
+  body .pswp__img{
+    height:90vh !important;
+    width: unset !important;
+    margin: 10vh auto;
+  }
+} */
+/* @else {
+  body .pswp__img {
+    height:unset !important;
+    /* width: 100vw !important; */
+    /* margin: 10vh auto; */
+  /* }
+} */ 
+
+
+
