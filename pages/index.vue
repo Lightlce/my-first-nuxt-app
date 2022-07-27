@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-4"
+    class="mx-4 mt-[48px]"
   >
     <section class="px-[24px] sm:px-0">
       <h1
@@ -16,11 +16,11 @@
     <section class="sm:mt-[56px] mt-[24px]">
       <h1 class="font-bold text-xl px-[24px] sm:px-0">Upcoming events</h1>
 
-      <div class="mt-4 md:flex md:flex-row">
+      <div class="mt-4 md:flex md:flex-wrap">
         <CardTile
           v-for="(item, i) in weeklyEvents"
           :key="i"
-          class="desktop-slide flex-1 border-[0px] rounded-lg drop-shadow-tile relative mr-6"
+          class="desktop-slide flex-1 border-[0px] rounded-lg drop-shadow-tile relative mt-6 md:mr-3 lg:mr-6 w-[240px]"
           cornerTextClass="text-xs lg:text-[16px] sm:px-[12px] font-semibold leading-[20px]"
           :imageSrc="item.imageSrc"
           :cornerText="item.cornerText"
@@ -154,37 +154,6 @@ export default {
     }
   },
 
-  // computed: {
-  //   breakpoints () {
-  //     return {
-  //       641: {
-  //         slidesPerView: 2,
-  //         centeredSlides: false,
-  //       },
-  //       1024: {
-  //         slidesPerView: 3,
-  //         centeredSlides: false,
-  //       },
-  //       1366: {
-  //         slidesPerView: 4,
-  //         centeredSlides: false,
-  //       },
-  //     }
-  //   },
-  // },
 }
 </script>
 
-<style scoped>
-/* @media (min-width: 1024px) {
-  .tablet-slide {
-    max-width: calc(33.3% - 15px);
-  }
-}
-
-@media (min-width: 1366px) {
-  .desktop-slide {
-    max-width: calc(25% - 15px);
-  }
-} */
-</style>
