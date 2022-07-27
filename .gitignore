@@ -91,3 +91,4 @@ sw.*
 
 # where PAT token is stored
 .npmrc
+node_modules
