@@ -16,7 +16,7 @@
     <section class="sm:mt-[56px] mt-[24px]">
       <h1 class="font-bold text-xl px-[24px] sm:px-0">Upcoming events</h1>
 
-      <div class="mt-4 md:flex md:flex-wrap">
+      <div class="mt-4 md:flex md:flex-wrap max-w-[900px]">
         <CardTile
           v-for="(item, i) in weeklyEvents"
           :key="i"
