@@ -8,6 +8,7 @@
       >
         Welcome to web training 3
       </h1>
+    </section>
   </div>
 </template>
 
