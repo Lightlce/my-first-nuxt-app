@@ -36,7 +36,6 @@ export default {
           Sun 1.30pm - 3.30pm`,
           buttonText: 'Find out more',
           to: 'happenings/test',
-          maxPastoralStatus: 3,
           isExternal: true,
         },
         {
@@ -46,7 +45,6 @@ export default {
           Sun 1.30pm - 3.30pm`,
           buttonText: 'Find out more',
           to: 'https://one-page.heartofgodchurch.org/videos',
-          minPastoralStatus: 4,
           isExternal: true,
         },
         {
@@ -55,7 +53,6 @@ export default {
           body: 'Bringing a youth? Let us know! We’re here to help!',
           buttonText: 'Find out more',
           to: 'happenings/test',
-          minPastoralStatus: 4,
           isExternal: true,
         },
         {
@@ -64,7 +61,6 @@ export default {
           body: 'We need youth & we need YOU! Let’s reach down!',
           buttonText: 'Find out more',
           to: 'happenings/test',
-          minPastoralStatus: 4,
           isExternal: true,
         },
         {
@@ -73,7 +69,6 @@ export default {
           body: 'Want to do something but not sure how? Fret not!',
           buttonText: 'Find out more',
           to: 'happenings/test',
-          minPastoralStatus: 4,
           isExternal: true,
         },
         {
@@ -82,7 +77,6 @@ export default {
           body: 'Calling all who are young at heart!',
           buttonText: 'Find out more',
           to: 'happenings/test',
-          minPastoralStatus: 4,
           isExternal: true,
           dataEventTracking: 'youth-events-interest-form',
         },
