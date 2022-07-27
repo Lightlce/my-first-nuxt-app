@@ -9,15 +9,33 @@
         Welcome to web training 3
       </h1>
     </section>
+
+    <EventsCardVue :events="events"></EventsCardVue>
+
   </div>
 </template>
 
 <script>
+import EventsCardVue from '../components/common/EventsCard.vue'
 
 export default {
+  components: {
+    EventsCardVue
 
+  },
   data () {
     return {
+      events:[
+        {
+          Title: "Connect a youth",
+          Body: "Bringing a youth? Let us know! We’re here to help!",
+          Image: "Hello World",
+        },{
+          Title: "Connect a youth",
+          Body: "Bringing a youth? Let us know! We’re here to help!",
+          Image: "Hello World",
+        }
+      ],
       upcomingEvents: [
       ],
       weeklyEvents: [
